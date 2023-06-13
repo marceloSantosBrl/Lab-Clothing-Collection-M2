@@ -29,4 +29,13 @@ public class ClothingModel
     [Required] public ClothingCollection ClothingCollection { get; set; }
     [Required] public ClothingType ClothingType { get; set; }
     [Required] public ClothingLayout ClothingLayout { get; set; }
+
+    public ClothingModel(string name, ClothingCollection clothingCollection, ClothingType clothingType,
+        ClothingLayout clothingLayout)
+    {
+        Name = name;
+        ClothingCollection = clothingCollection;
+        ClothingType = clothingType;
+        ClothingLayout = clothingLayout;
+    }
 }

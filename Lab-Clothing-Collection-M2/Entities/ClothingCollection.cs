@@ -16,7 +16,7 @@ public enum SystemActivity
     Inativa
 }
 
-public class Collection
+public class ClothingCollection
 {
     [Key] public int Id { get; set; }
     [Required] [MaxLength(150)] public string Name { get; set; }
@@ -27,7 +27,7 @@ public class Collection
     [Required] public Season Season { get; set; }
     [Required] public SystemActivity SystemActivity { get; set; }
 
-    public Collection(string name, User user, string brand, decimal budget, DateOnly launchYear, Season season,
+    public ClothingCollection(string name, User user, string brand, decimal budget, DateOnly launchYear, Season season,
         SystemActivity systemActivity)
     {
         Name = name;

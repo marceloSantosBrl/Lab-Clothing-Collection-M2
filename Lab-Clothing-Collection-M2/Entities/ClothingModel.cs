@@ -4,31 +4,40 @@ namespace Lab_Clothing_Collection_M2.Entities;
 
 public enum ClothingType
 {
-    Bermuda,
-    Biquine,
-    Bolsa,
-    Bone,
-    Calca,
-    Calcado,
-    Camisa,
-    Chapeu,
-    Saia
+    Shorts,
+    Bikini,
+    Purse,
+    Cap,
+    Pants,
+    Shoe,
+    Shirt,
+    Hat,
+    Skirt
 }
 
 public enum ClothingLayout
 {
-    Bordado,
-    Estampado,
-    Liso
+    Needlework,
+    DiePressed,
+    Plain
 }
 
 public class ClothingModel
 {
     [Key] public int Id { get; set; }
-    [Required] [MaxLength(150)] public string Name { get; set; }
-    [Required] public ClothingCollection ClothingCollection { get; set; }
-    [Required] public ClothingType ClothingType { get; set; }
-    [Required] public ClothingLayout ClothingLayout { get; set; }
+
+    [Required(ErrorMessage = "The Name field is required.")]
+    [MaxLength(150, ErrorMessage = "The Name field must contain at most 150 characters.")]
+    public string Name { get; set; }
+
+    [Required(ErrorMessage = "The ClothingCollection field is required.")]
+    public ClothingCollection ClothingCollection { get; set; }
+
+    [Required(ErrorMessage = "The ClothingType field is required.")]
+    public ClothingType ClothingType { get; set; }
+
+    [Required(ErrorMessage = "The ClothingLayout field is required.")]
+    public ClothingLayout ClothingLayout { get; set; }
 
     public ClothingModel(string name, ClothingCollection clothingCollection, ClothingType clothingType,
         ClothingLayout clothingLayout)

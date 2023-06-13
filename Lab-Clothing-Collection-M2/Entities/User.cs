@@ -18,19 +18,16 @@ public enum UserStatus
 
 public class User : Person
 {
+    [Required] [MaxLength(100)] public string Email { get; set; }
     [Required] public UserType UserType { get; set; }
     [Required] public UserStatus UserStatus { get; set; }
 
-    public User()
-    {
-        
-    }
-    
     public User(string name, string gender, DateOnly birthday,
-                string phoneNumber, UserType userType, UserStatus userStatus) :
-                base(name, gender, birthday, phoneNumber)
+        string phoneNumber, UserType userType, UserStatus userStatus, string email) :
+        base(name, gender, birthday, phoneNumber)
     {
         UserType = userType;
         UserStatus = userStatus;
+        this.Email = email;
     }
 }

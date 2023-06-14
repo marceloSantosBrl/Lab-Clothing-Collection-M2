@@ -32,7 +32,7 @@ public class User : Person
     {
         
     }
-    public User(string name, string gender, DateOnly birthDate,
+    public User(string name, string gender, DateTime birthDate,
         string phoneNumber, UserType userType, UserStatus userStatus, string email) :
         base(name, gender, birthDate, phoneNumber)
     {

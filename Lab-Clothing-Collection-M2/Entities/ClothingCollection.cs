@@ -35,7 +35,7 @@ public class ClothingCollection
     public decimal Budget { get; set; }
 
     [Required(ErrorMessage = "The LaunchYear field is required.")]
-    public DateOnly LaunchYear { get; set; }
+    public DateTime LaunchYear { get; set; }
 
     [Required(ErrorMessage = "The Season field is required.")]
     public Season Season { get; set; }
@@ -47,7 +47,7 @@ public class ClothingCollection
     {
         
     }
-    public ClothingCollection(string name, User user, string brand, decimal budget, DateOnly launchYear, Season season,
+    public ClothingCollection(string name, User user, string brand, decimal budget, DateTime launchYear, Season season,
         SystemActivity systemActivity)
     {
         Name = name;

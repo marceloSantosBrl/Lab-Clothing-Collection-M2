@@ -15,7 +15,7 @@ public static class ModelBuilderExtensions
             Id = 1,
             Name = "John Smith",
             Gender = "Male",
-            BirthDate = new DateOnly(1990, 01, 01),
+            BirthDate = new DateTime(1990, 01, 01),
             Cpf = "111.222.333-44",
             Cnpj = null,
             PhoneNumber = "+1 (555) 123-4567",
@@ -27,7 +27,7 @@ public static class ModelBuilderExtensions
             Id = 2,
             Name = "Mary Johnson",
             Gender = "Female",
-            BirthDate = new DateOnly(1995, 05, 15),
+            BirthDate = new DateTime(1995, 05, 15),
             Cpf = "222.333.444-55",
             Cnpj = null,
             PhoneNumber = "+1 (555) 987-6543",
@@ -39,7 +39,7 @@ public static class ModelBuilderExtensions
             Id = 3,
             Name = "Bruce Wayne",
             Gender = "Male",
-            BirthDate = new DateOnly(1975, 11, 15),
+            BirthDate = new DateTime(1975, 11, 15),
             Cpf = null,
             Cnpj = "22.333.444.555-0001",
             PhoneNumber = "+1 (555) 902-3846",
@@ -51,131 +51,133 @@ public static class ModelBuilderExtensions
         //Collections
         
         
-        var collection1 = new ClothingCollection()
+        var collection1 = new
         {
             Id = 1,
             Name = "Autumn Vibes",
-            User = user2,
+            UserId = 1,
             Brand = "Acme Clothing",
             Budget = 5000m,
-            LaunchYear = new DateOnly(2021, 1, 1),
+            LaunchYear = new DateTime(2021, 1, 1),
             Season = Season.Fall,
             SystemActivity = SystemActivity.Active
         };
-        var collection2 = new ClothingCollection()
+        var collection2 = new 
         {
             Id = 2,
             Name = "Winter Wonderland",
-            User = user1,
+            UserId = 1,
             Brand = "Snowy Styles",
             Budget = 7000m,
-            LaunchYear = new DateOnly(2021, 1, 1),
+            LaunchYear = new DateTime(2021, 1, 1),
             Season = Season.Winter,
             SystemActivity = SystemActivity.Active
         };
-        var collection3 = new ClothingCollection()
+        var collection3 = new
         {
             Id = 3,
             Name = "Spring Bloom",
-            User = user3,
+            UserId = 3,
             Brand = "Floral Fashion",
             Budget = 8000m,
-            LaunchYear = new DateOnly(2022, 1, 1),
+            LaunchYear = new DateTime(2022, 1, 1),
             Season = Season.Spring,
             SystemActivity = SystemActivity.Active
         };
-        var collection4 = new ClothingCollection()
+        var collection4 = new
         {
             Id = 4,
             Name = "Summer Breeze",
-            User = user3,
+            UserId = 2,
             Brand = "Beachwear Boutique",
             Budget = 6000m,
-            LaunchYear = new DateOnly(2022, 1, 1),
+            LaunchYear = new DateTime(2022, 1, 1),
             Season = Season.Summer,
             SystemActivity = SystemActivity.Active
         };
         
         //ClothingModels
 
-        var model1 = new ClothingModel()
+        var model1 = new
         {
             Id = 1,
             Name = "Beach Shorts",
-            ClothingCollection = collection1,
+            ClothingCollectionId = 1,
             ClothingType = ClothingType.Shorts,
             ClothingLayout = ClothingLayout.Plain
         };
-        var model2 = new ClothingModel()
+        var model2 = new
         {
             Id = 2,
             Name = "Floral Bikini",
-            ClothingCollection = collection2,
+            ClothingCollectionId = 2,
             ClothingType = ClothingType.Bikini,
             ClothingLayout = ClothingLayout.Needlework
         };
-        var model3 = new ClothingModel()
+        var model3 = new
         {
             Id = 3,
             Name = "Leather Purse",
-            ClothingCollection = collection3,
+            ClothingCollectionId = 3,
             ClothingType = ClothingType.Purse,
             ClothingLayout = ClothingLayout.DiePressed
         };
-        var model4 = new ClothingModel()
+        var model4 = new
         {
             Id = 4,
             Name = "Baseball Cap",
-            ClothingCollection = collection4,
+            ClothingCollectionId = 4,
             ClothingType = ClothingType.Cap,
             ClothingLayout = ClothingLayout.Plain
         };
-        var model5 = new ClothingModel()
+        var model5 = new
         {
             Id = 5,
             Name = "Pleated Skirt",
-            ClothingCollection = collection1,
+            ClothingCollectionId = 1,
             ClothingType = ClothingType.Skirt,
             ClothingLayout = ClothingLayout.Needlework
         };
-        var model6 = new ClothingModel()
+        var model6 = new
         {
             Id = 6,
             Name = "Casual Pants",
-            ClothingCollection = collection2,
+            ClothingCollectionId = 2,
             ClothingType = ClothingType.Pants,
-            ClothingLayout = ClothingLayout.Plain
+            ClothingLayout = ClothingLayout.Plain,
         };
-        var model7 = new ClothingModel()
+        var model7 = new
         {
             Id = 7,
             Name = "Sneakers",
-            ClothingCollection = collection3,
+            ClothingCollectionId = 3,
             ClothingType = ClothingType.Shoe,
             ClothingLayout = ClothingLayout.DiePressed
         };
-        
-        modelBuilder.Entity<ClothingModel>().HasData(model1, model2, model3, model4, model5, model6, model7);
+
         var person1 = new Person()
         {
-            Id = 1,
+            Id = 4,
             Name = "Silvia Lopez",
             Gender = "Female",
-            BirthDate = new DateOnly(1988, 04, 23),
+            BirthDate = new DateTime(1988, 04, 23),
             Cpf = "444.555.666-77",
             Cnpj = null,
             PhoneNumber = "+1 (555) 202-7634"
         };
         var person2 = new Person()
         {
-            Id = 3,
+            Id = 5,
             Name = "Catherine Brown",
             Gender = "Female",
-            BirthDate = new DateOnly(1985, 03, 12),
+            BirthDate = new DateTime(1985, 03, 12),
             Cpf = "333.444.555-66",
             Cnpj = null,
             PhoneNumber = "+1 (555) 112-3581"
         };
         modelBuilder.Entity<Person>().HasData(person1, person2);
+        modelBuilder.Entity<User>().HasData(user1, user2, user3);
+        modelBuilder.Entity<ClothingCollection>().HasData(collection1, collection2, collection3, collection4);
+        modelBuilder.Entity<ClothingModel>().HasData(model1, model2, model3, model4, model5, model6, model7);
     }
 }

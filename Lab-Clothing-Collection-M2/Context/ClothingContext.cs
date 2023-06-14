@@ -20,4 +20,9 @@ public class ClothingContext: DbContext
     {
         optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Seed();
+    }
 }

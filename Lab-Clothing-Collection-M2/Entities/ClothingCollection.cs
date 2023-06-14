@@ -43,6 +43,10 @@ public class ClothingCollection
     [Required(ErrorMessage = "The SystemActivity field is required.")]
     public SystemActivity SystemActivity { get; set; }
 
+    public ClothingCollection()
+    {
+        
+    }
     public ClothingCollection(string name, User user, string brand, decimal budget, DateOnly launchYear, Season season,
         SystemActivity systemActivity)
     {

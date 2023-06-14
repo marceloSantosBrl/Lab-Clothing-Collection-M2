@@ -15,7 +15,7 @@ public class Person
     public string Gender { get; set; }
 
     [Required(ErrorMessage = "The Birthday field is required.")]
-    public DateOnly Birthday { get; set; }
+    public DateOnly BirthDate { get; set; }
 
     [MaxLength(20, ErrorMessage = "The Cpf field must contain at most 20 characters.")]
     public string? Cpf { get; set; }
@@ -31,11 +31,11 @@ public class Person
     {
     }
 
-    public Person(string name, string gender, DateOnly birthday, string phoneNumber)
+    public Person(string name, string gender, DateOnly birthDate, string phoneNumber)
     {
         Name = name;
         Gender = gender;
-        Birthday = birthday;
+        BirthDate = birthDate;
         PhoneNumber = phoneNumber;
     }
 }

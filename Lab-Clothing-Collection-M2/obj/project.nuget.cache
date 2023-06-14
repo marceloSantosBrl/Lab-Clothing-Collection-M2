@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ZiCDW558Np/e06hjG5Px/I5ytEvSFl1xb+n9Of+wIBvEviJ7w9P2RRMQua6tlGnjBqcmk9TavYlNHaTt5gnVFg==",
+  "dgSpecHash": "aJGRFFZvZ/FCotK/4gyt5qFG0VrGijBujTEf8EXrFo84fNdHIV+U4av56KTG34svoTPtj4so9ufShXzQTE8Q1w==",
   "success": true,
   "projectFilePath": "/home/marcelo/RiderProjects/Lab-Clothing-Collection-M2/Lab-Clothing-Collection-M2/Lab-Clothing-Collection-M2.csproj",
   "expectedPackageFiles": [
     "/home/marcelo/.nuget/packages/azure.core/1.24.0/azure.core.1.24.0.nupkg.sha512",
     "/home/marcelo/.nuget/packages/azure.identity/1.6.0/azure.identity.1.6.0.nupkg.sha512",
     "/home/marcelo/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/home/marcelo/.nuget/packages/microsoft.aspnetcore.mvc.versioning/5.1.0/microsoft.aspnetcore.mvc.versioning.5.1.0.nupkg.sha512",
     "/home/marcelo/.nuget/packages/microsoft.aspnetcore.openapi/7.0.5/microsoft.aspnetcore.openapi.7.0.5.nupkg.sha512",
     "/home/marcelo/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/home/marcelo/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",

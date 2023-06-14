@@ -16,8 +16,8 @@ public static class ModelBuilderExtensions
             Name = "John Smith",
             Gender = "Male",
             BirthDate = new DateTime(1990, 01, 01),
-            DocumentId = "111.222.333-44",
-            PhoneNumber = "+1 (555) 123-4567",
+            DocumentId = "11122233344",
+            PhoneNumber = "+15551234567",
             Email = "john.smith@example.com",
             UserType = UserType.Creator
         };
@@ -27,8 +27,8 @@ public static class ModelBuilderExtensions
             Name = "Mary Johnson",
             Gender = "Female",
             BirthDate = new DateTime(1995, 05, 15),
-            DocumentId = "222.333.444-55",
-            PhoneNumber = "+1 (555) 987-6543",
+            DocumentId = "22233344455",
+            PhoneNumber = "+15559876543",
             Email = "mary.johnson@example.com",
             UserType = UserType.Creator
         };
@@ -38,8 +38,8 @@ public static class ModelBuilderExtensions
             Name = "Bruce Wayne",
             Gender = "Male",
             BirthDate = new DateTime(1975, 11, 15),
-            DocumentId = "22.333.444.555-0001",
-            PhoneNumber = "+1 (555) 902-3846",
+            DocumentId = "223334445550001",
+            PhoneNumber = "+15559023846",
             Email = "bruce.wayne@example.com",
             UserType = UserType.Creator
         };
@@ -158,8 +158,8 @@ public static class ModelBuilderExtensions
             Name = "Silvia Lopez",
             Gender = "Female",
             BirthDate = new DateTime(1988, 04, 23),
-            DocumentId = "444.555.666-77",
-            PhoneNumber = "+1 (555) 202-7634"
+            DocumentId = "44455566677",
+            PhoneNumber = "+15552027634"
         };
         var person2 = new Person()
         {
@@ -167,8 +167,8 @@ public static class ModelBuilderExtensions
             Name = "Catherine Brown",
             Gender = "Female",
             BirthDate = new DateTime(1985, 03, 12),
-            DocumentId = "333.444.555-66",
-            PhoneNumber = "+1 (555) 112-3581"
+            DocumentId = "33344455566",
+            PhoneNumber = "+15551123581"
         };
         modelBuilder.Entity<Person>().HasData(person1, person2);
         modelBuilder.Entity<User>().HasData(user1, user2, user3);

@@ -38,18 +38,4 @@ public class ClothingModel
 
     [Required(ErrorMessage = "The ClothingLayout field is required.")]
     public ClothingLayout ClothingLayout { get; set; }
-
-    public ClothingModel()
-    {
-        
-    }
-    
-    public ClothingModel(string name, ClothingCollection clothingCollection, ClothingType clothingType,
-        ClothingLayout clothingLayout)
-    {
-        Name = name;
-        ClothingCollection = clothingCollection;
-        ClothingType = clothingType;
-        ClothingLayout = clothingLayout;
-    }
 }

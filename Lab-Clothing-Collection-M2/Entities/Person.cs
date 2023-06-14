@@ -1,7 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace Lab_Clothing_Collection_M2.Entities;
 
+[Index(nameof(DocumentId),IsUnique = true)]
 public class Person
 {
     [Key] public int Id { get; set; }
@@ -17,25 +19,11 @@ public class Person
     [Required(ErrorMessage = "The Birthday field is required.")]
     public DateTime BirthDate { get; set; }
 
-    [MaxLength(20, ErrorMessage = "The Cpf field must contain at most 20 characters.")]
-    public string? Cpf { get; set; }
-
-    [MaxLength(30, ErrorMessage = "The Cnpj field must contain at most 30 characters.")]
-    public string? Cnpj { get; set; }
+    [Required(ErrorMessage = "The DocumentId field is required.")]
+    [MaxLength(30, ErrorMessage = "The DocumentId field must contain at most 30 characters.")]
+    public string DocumentId { get; set; }
 
     [Required(ErrorMessage = "The PhoneNumber field is required.")]
     [MaxLength(30, ErrorMessage = "The PhoneNumber field must contain at most 30 characters.")]
     public string PhoneNumber { get; set; }
-
-    public Person()
-    {
-    }
-
-    public Person(string name, string gender, DateTime birthDate, string phoneNumber)
-    {
-        Name = name;
-        Gender = gender;
-        BirthDate = birthDate;
-        PhoneNumber = phoneNumber;
-    }
 }

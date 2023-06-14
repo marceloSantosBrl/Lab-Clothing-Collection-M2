@@ -27,17 +27,4 @@ public class User : Person
 
     [Required(ErrorMessage = "The UserStatus field is required.")]
     public UserStatus UserStatus { get; set; }
-
-    public User()
-    {
-        
-    }
-    public User(string name, string gender, DateTime birthDate,
-        string phoneNumber, UserType userType, UserStatus userStatus, string email) :
-        base(name, gender, birthDate, phoneNumber)
-    {
-        UserType = userType;
-        UserStatus = userStatus;
-        this.Email = email;
-    }
 }

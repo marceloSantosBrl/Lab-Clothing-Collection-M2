@@ -16,8 +16,7 @@ public static class ModelBuilderExtensions
             Name = "John Smith",
             Gender = "Male",
             BirthDate = new DateTime(1990, 01, 01),
-            Cpf = "111.222.333-44",
-            Cnpj = null,
+            DocumentId = "111.222.333-44",
             PhoneNumber = "+1 (555) 123-4567",
             Email = "john.smith@example.com",
             UserType = UserType.Creator
@@ -28,8 +27,7 @@ public static class ModelBuilderExtensions
             Name = "Mary Johnson",
             Gender = "Female",
             BirthDate = new DateTime(1995, 05, 15),
-            Cpf = "222.333.444-55",
-            Cnpj = null,
+            DocumentId = "222.333.444-55",
             PhoneNumber = "+1 (555) 987-6543",
             Email = "mary.johnson@example.com",
             UserType = UserType.Creator
@@ -40,8 +38,7 @@ public static class ModelBuilderExtensions
             Name = "Bruce Wayne",
             Gender = "Male",
             BirthDate = new DateTime(1975, 11, 15),
-            Cpf = null,
-            Cnpj = "22.333.444.555-0001",
+            DocumentId = "22.333.444.555-0001",
             PhoneNumber = "+1 (555) 902-3846",
             Email = "bruce.wayne@example.com",
             UserType = UserType.Creator
@@ -161,8 +158,7 @@ public static class ModelBuilderExtensions
             Name = "Silvia Lopez",
             Gender = "Female",
             BirthDate = new DateTime(1988, 04, 23),
-            Cpf = "444.555.666-77",
-            Cnpj = null,
+            DocumentId = "444.555.666-77",
             PhoneNumber = "+1 (555) 202-7634"
         };
         var person2 = new Person()
@@ -171,8 +167,7 @@ public static class ModelBuilderExtensions
             Name = "Catherine Brown",
             Gender = "Female",
             BirthDate = new DateTime(1985, 03, 12),
-            Cpf = "333.444.555-66",
-            Cnpj = null,
+            DocumentId = "333.444.555-66",
             PhoneNumber = "+1 (555) 112-3581"
         };
         modelBuilder.Entity<Person>().HasData(person1, person2);

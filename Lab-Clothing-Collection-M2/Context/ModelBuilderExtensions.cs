@@ -10,7 +10,7 @@ public static class ModelBuilderExtensions
         
         //Users
         
-        var user1 = new User()
+        var user1 = new User
         {
             Id = 1,
             Name = "John Smith",
@@ -21,7 +21,7 @@ public static class ModelBuilderExtensions
             Email = "john.smith@example.com",
             UserType = UserType.Creator
         };
-        var user2 = new User()
+        var user2 = new User
         {
             Id = 2,
             Name = "Mary Johnson",
@@ -32,7 +32,7 @@ public static class ModelBuilderExtensions
             Email = "mary.johnson@example.com",
             UserType = UserType.Creator
         };
-        var user3 = new User()
+        var user3 = new User
         {
             Id = 3,
             Name = "Bruce Wayne",
@@ -152,7 +152,7 @@ public static class ModelBuilderExtensions
             ClothingLayout = ClothingLayout.DiePressed
         };
 
-        var person1 = new Person()
+        var person1 = new Person
         {
             Id = 4,
             Name = "Silvia Lopez",
@@ -161,7 +161,7 @@ public static class ModelBuilderExtensions
             DocumentId = "44455566677",
             PhoneNumber = "+15552027634"
         };
-        var person2 = new Person()
+        var person2 = new Person
         {
             Id = 5,
             Name = "Catherine Brown",

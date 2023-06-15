@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace Lab_Clothing_Collection_M2.Entities;
 
@@ -16,6 +17,7 @@ public enum SystemActivity
     Inactive
 }
 
+[Index(nameof(Name),IsUnique = true)]
 public class ClothingCollection
 {
     [Key] public int Id { get; set; }

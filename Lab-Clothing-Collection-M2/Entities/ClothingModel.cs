@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace Lab_Clothing_Collection_M2.Entities;
 
@@ -22,6 +23,7 @@ public enum ClothingLayout
     Plain
 }
 
+[Index(nameof(Name), IsUnique = true)]
 public class ClothingModel
 {
     [Key] public int Id { get; set; }

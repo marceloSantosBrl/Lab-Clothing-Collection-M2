@@ -1,4 +1,3 @@
-using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using Lab_Clothing_Collection_M2.DTO.User;
 using Lab_Clothing_Collection_M2.Entities;
@@ -26,7 +25,8 @@ public static class UserMappings
     {
         return new User
         {
-            BirthDate = request.BirthDate,
+            BirthDate = request.BirthDate ?? 
+                        throw new ArgumentException("Birthday Field can't be null", nameof(request)),
             DocumentId = GetFormattedId(request.DocumentId),
             Email = request.Email,
             Gender = request.Gender,

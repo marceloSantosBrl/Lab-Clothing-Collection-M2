@@ -36,7 +36,7 @@ public class UserController : ControllerBase
             var response = await _repository.AddUser(request);
             return Created($"api/usuarios/{response.Id}", response);
         }
-        catch (FluentValidation.ValidationException)
+        catch (Exception e) when (e is FluentValidation.ValidationException or ArgumentException)
         {
             return BadRequest("Provided data is invalid or missing required fields");
         }

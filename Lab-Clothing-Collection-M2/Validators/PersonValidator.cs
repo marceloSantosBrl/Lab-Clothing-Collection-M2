@@ -7,9 +7,10 @@ public class PersonValidator: AbstractValidator<Person>
 {
     public PersonValidator()
     {
-        RuleFor(person => person.Name).NotEmpty();
-        RuleFor(person => person.Gender).NotEmpty();
-        RuleFor(person => person.DocumentId).NotEmpty();
-        RuleFor(person => person.PhoneNumber).NotEmpty();
+        RuleFor(p => p.Name).NotEmpty();
+        RuleFor(p => p.Gender).NotEmpty();
+        RuleFor(p => p.DocumentId).NotEmpty();
+        RuleFor(p => p.PhoneNumber).NotEmpty();
+        RuleFor(p => p.BirthDate).NotNull();
     }
 }

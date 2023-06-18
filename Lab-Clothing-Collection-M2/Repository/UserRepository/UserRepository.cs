@@ -42,12 +42,7 @@ public class UserRepository : IUserRepository
         userEntity.BirthDate = request.BirthDate ?? userEntity.BirthDate;
         userEntity.PhoneNumber = request.PhoneNumber ?? userEntity.PhoneNumber;
         await _validator.ValidateAndThrowAsync(userEntity);
-        var recordsChanged = await _context.SaveChangesAsync();
-        if (recordsChanged == 0)
-        {
-            throw new DbUpdateException("Failure to update the database");
-        }
-
+        await _context.SaveChangesAsync();
         return UserMappings.UserEntityToResponse(userEntity);
     }
 
@@ -57,12 +52,7 @@ public class UserRepository : IUserRepository
             .FirstAsync(u => u.Id == userId);
         userEntity.UserStatus = request.UserStatus;
         await _validator.ValidateAndThrowAsync(userEntity);
-        var recordsChanged = await _context.SaveChangesAsync();
-        if (recordsChanged == 0)
-        {
-            throw new DbUpdateException("Failure to update the database");
-        }
-
+        await _context.SaveChangesAsync();
         return UserMappings.UserEntityToResponse(userEntity);
     }
 

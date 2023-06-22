@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace Lab_Clothing_Collection_M2.Entities;
@@ -35,6 +36,10 @@ public class ClothingModel
     [Required(ErrorMessage = "The ClothingCollection field is required.")]
     public ClothingCollection ClothingCollection { get; set; }
 
+    [Required(ErrorMessage = "The ClothingCollectionId field is required.")]
+    [ForeignKey("ClothingCollection")]
+    public int ClothingCollectionId { get; set; }
+    
     [Required(ErrorMessage = "The ClothingType field is required.")]
     public ClothingType ClothingType { get; set; }
 

@@ -2,6 +2,7 @@ using FluentValidation;
 using Lab_Clothing_Collection_M2;
 using Lab_Clothing_Collection_M2.Context;
 using Lab_Clothing_Collection_M2.Repository.CollectionRepository;
+using Lab_Clothing_Collection_M2.Repository.ModelRepository;
 using Lab_Clothing_Collection_M2.Repository.UserRepository;
 using Lab_Clothing_Collection_M2.Validators;
 using Microsoft.AspNetCore.Mvc;
@@ -23,8 +24,10 @@ builder.Services.AddApiVersioning(options =>
 });
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICollectioRepository, CollectionRepository>();
+builder.Services.AddScoped<IModelRepository, ModelRepository>();
 builder.Services.AddTransient<UserValidator>();
 builder.Services.AddTransient<CollectionValidator>();
+builder.Services.AddTransient<ModelValidator>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

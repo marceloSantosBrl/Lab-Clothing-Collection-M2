@@ -24,11 +24,7 @@ public class UserRepository : IUserRepository
         var userEntity = UserMappings.UserRequestToEntity(user);
         await _validator.ValidateAndThrowAsync(userEntity);
         _context.Users.Add(userEntity);
-        var recordsChanged = await _context.SaveChangesAsync();
-        if (recordsChanged == 0)
-        {
-            throw new DbUpdateException();
-        }
+        await _context.SaveChangesAsync();
         return UserMappings.UserEntityToResponse(userEntity);
     }
 
@@ -50,7 +46,8 @@ public class UserRepository : IUserRepository
     {
         var userEntity = await _context.Users
             .FirstAsync(u => u.Id == userId);
-        userEntity.UserStatus = request.UserStatus;
+        userEntity.UserStatus = request.UserStatus ??
+                                throw new ArgumentException("UserStatus Field can't be null", nameof(request));
         await _validator.ValidateAndThrowAsync(userEntity);
         await _context.SaveChangesAsync();
         return UserMappings.UserEntityToResponse(userEntity);

@@ -2,6 +2,7 @@ using Lab_Clothing_Collection_M2.DTO.ClothingCollection;
 using Lab_Clothing_Collection_M2.Repository.CollectionRepository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Exception = System.Exception;
 
 namespace Lab_Clothing_Collection_M2.Controllers;
 
@@ -23,13 +24,9 @@ public class ClothingCollectionController : ControllerBase
     /// <returns>Returns the created collection data including the assigned identifier and other fields</returns>
     /// <response code="201">Collection successfully created</response>
     /// <response code="400">Bad request when provided data is invalid or missing required fields</response>
-    /// <response code="404">
-    /// Not found when provided ClothingCollectionRequest.UserId does not match an existing user in the system
-    /// </response>
     /// <response code="409">Conflict when the provided collection name already exists in the system</response>
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status409Conflict)]
     [ApiVersion("1.0")]
     [HttpPost("/api/colecoes")]
@@ -41,17 +38,13 @@ public class ClothingCollectionController : ControllerBase
             var response = await _repository.AddClothingCollection(request);
             return Created($"api/colecoes/{response.Id}", response);
         }
-        catch (InvalidOperationException)
-        {
-            return NotFound("Provided UserId doesnt exist");
-        }
         catch (Exception ex) when (ex is FluentValidation.ValidationException or ArgumentException)
         {
             return BadRequest("Provided data is invalid or missing required fields");
         }
         catch (DbUpdateException)
         {
-            return Conflict("Provided collection name already exists in the system");
+            return Conflict("Provided collection name already exists in the system or UserId doesnt exist");
         }
     }
     
@@ -123,7 +116,7 @@ public class ClothingCollectionController : ControllerBase
         {
             return NotFound("provided data is invalid or missing required fields");
         }
-        catch (FluentValidation.ValidationException)
+        catch (Exception ex) when (ex is ArgumentException or FluentValidation.ValidationException)
         {
             return BadRequest("Provided identifier does not match an existing collection in the system");
         }
@@ -203,7 +196,7 @@ public class ClothingCollectionController : ControllerBase
             await _repository.DeleteClothingCollection(id);
             return NoContent();
         }
-        catch (Exception e)
+        catch (ArgumentException)
         {
             return NotFound("Provided identifier does not match an existing collection in the system");
         }

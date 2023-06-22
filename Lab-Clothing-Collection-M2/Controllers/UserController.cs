@@ -2,6 +2,7 @@ using Lab_Clothing_Collection_M2.DTO.User;
 using Lab_Clothing_Collection_M2.Repository.UserRepository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Exception = System.Exception;
 
 namespace Lab_Clothing_Collection_M2.Controllers;
 
@@ -42,7 +43,7 @@ public class UserController : ControllerBase
         }
         catch (DbUpdateException)
         {
-            return Conflict("Error to update the database");
+            return Conflict("Name already in use");
         }
     }
 
@@ -106,7 +107,7 @@ public class UserController : ControllerBase
         {
             return NotFound("Provided identifier does not match an existing user in the system");
         }
-        catch (FluentValidation.ValidationException)
+        catch (Exception ex) when (ex is FluentValidation.ValidationException or ArgumentException)
         {
             return BadRequest("Provided data is invalid or missing required fields");
         }

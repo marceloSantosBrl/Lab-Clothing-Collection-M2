@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace Lab_Clothing_Collection_M2.Entities;
@@ -28,7 +29,11 @@ public class ClothingCollection
 
     [Required(ErrorMessage = "The User field is required.")]
     public User User { get; set; }
-
+    
+    [Required(ErrorMessage = "The UserId field is required.")]
+    [ForeignKey("User")]
+    public int UserId { get; set; }
+    
     [Required(ErrorMessage = "The Brand field is required.")]
     [MaxLength(100, ErrorMessage = "The Brand field must contain at most 100 characters.")]
     public string Brand { get; set; }

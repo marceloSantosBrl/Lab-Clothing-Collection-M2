@@ -9,13 +9,20 @@ public static class CollectionMappings
     {
         return new ClothingCollection
         {
-            Name = request.Name,
-            Brand = request.Brand,
-            Budget = request.Budget,
-            LaunchYear = request.LaunchYear ?? 
-                         throw new ArgumentException("LaunchYear Field can't be null", nameof(request)),
-            Season = request.Season,
-            SystemActivity = request.SystemActivity
+            Name = request.Name ??
+            throw new ArgumentException("LaunchYear field can't be null", nameof(request)),
+            Brand = request.Brand ??
+                    throw new ArgumentException("Brand field can't be null", nameof(request)),
+            Budget = request.Budget ??
+                     throw new ArgumentException("Budget field can't be null", nameof(request)),
+            UserId = request.UserId ??
+                     throw new ArgumentException("UserId field can't be null", nameof(request)),
+            LaunchYear = request.LaunchYear ??
+                         throw new ArgumentException("LaunchYear field can't be null", nameof(request)),
+            Season = request.Season ??
+                     throw new ArgumentException("Season field can't be null", nameof(request)),
+            SystemActivity = request.SystemActivity ??
+                             throw new ArgumentException("SystemActivity field can't be null", nameof(request))
         };
     }
 
@@ -23,6 +30,7 @@ public static class CollectionMappings
     {
         return new CollectionResponse
         {
+            UserId = entity.UserId,
             Brand = entity.Brand,
             Budget = entity.Budget,
             Id = entity.Id,

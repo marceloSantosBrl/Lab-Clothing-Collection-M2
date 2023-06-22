@@ -6,8 +6,12 @@ namespace Lab_Clothing_Collection_M2.Mappings;
 
 public static class UserMappings
 {
-    public static string GetFormattedId(string unformattedId)
+    public static string GetFormattedId(string? unformattedId)
     {
+        if (unformattedId == null)
+        {
+            throw new ArgumentException("unformattedId field can't be null", nameof(unformattedId));
+        }
         var charArray = unformattedId.ToCharArray();
         var strBuilder = new StringBuilder();
         foreach (var t in charArray)
@@ -26,14 +30,20 @@ public static class UserMappings
         return new User
         {
             BirthDate = request.BirthDate ?? 
-                        throw new ArgumentException("Birthday Field can't be null", nameof(request)),
+                        throw new ArgumentException("Birthday field can't be null", nameof(request)),
             DocumentId = GetFormattedId(request.DocumentId),
-            Email = request.Email,
-            Gender = request.Gender,
-            Name = request.Name,
-            PhoneNumber = request.PhoneNumber,
-            UserStatus = request.UserStatus,
-            UserType = request.UserType,
+            Email = request.Email ??
+                    throw new ArgumentException("Email field can't be null", nameof(request)),
+            Gender = request.Gender ??
+                     throw new ArgumentException("Gender field can't be null", nameof(request)),
+            Name = request.Name ??
+                   throw new ArgumentException("Name field can't be null", nameof(request)),
+            PhoneNumber = request.PhoneNumber??
+                          throw new ArgumentException("PhoneNumber field can't be null", nameof(request)),
+            UserStatus = request.UserStatus??
+                         throw new ArgumentException("UserStatus field can't be null", nameof(request)),
+            UserType = request.UserType??
+                       throw new ArgumentException("UserType field can't be null", nameof(request))
         };
     }
 
